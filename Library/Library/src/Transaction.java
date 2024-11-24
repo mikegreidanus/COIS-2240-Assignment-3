@@ -60,7 +60,7 @@ public class Transaction {
     //Adding a saveTransaction class to store borrowed and returned books
     public void saveTransaction (String transactionDetails) {
     	try {
-			BufferedWriter saving = new BufferedWriter(new FileWriter("transaction.txt"));
+			BufferedWriter saving = new BufferedWriter(new FileWriter("transaction.txt", true));
 			saving.write(transactionDetails+"\n");
 			saving.close();
 		} catch (IOException e) {
@@ -74,7 +74,7 @@ public class Transaction {
 			BufferedReader display = new BufferedReader(new FileReader("transaction.txt"));
 			String line;
 			while((line=display.readLine()) != null) {
-				System.out.print(line);
+				System.out.print(line+"\n");
 			}
 			display.close();
 		}  

@@ -1,0 +1,5 @@
+2024-11-24 12:01:24 - Borrowing: George borrowed Programming
+2024-11-24 12:01:34 - Borrowing: George borrowed Math
+2024-11-24 12:01:43 - Borrowing: Anne borrowed AI
+2024-11-24 12:02:06 - Returning: George returned Math
+2024-11-24 12:02:15 - Borrowing: Anne borrowed Math
