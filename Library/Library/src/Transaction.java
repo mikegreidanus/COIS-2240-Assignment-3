@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -54,13 +57,29 @@ public class Transaction {
         return sdf.format(new Date());
     }
     
-    //Adding a Save transaction class to store borrowed and returned books
+    //Adding a saveTransaction class to store borrowed and returned books
     public void saveTransaction (String transactionDetails) {
     	try {
 			BufferedWriter saving = new BufferedWriter(new FileWriter("transaction.txt"));
 			saving.write(transactionDetails+"\n");
 			saving.close();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    //Adding a displayTransactionHistory class
+    public void displayTransactionHistory() {
+    	try {
+			BufferedReader display = new BufferedReader(new FileReader("transaction.txt"));
+			String line;
+			while((line=display.readLine()) != null) {
+				System.out.print(line);
+			}
+			display.close();
+		}  
+    	catch (IOException e) {
+			System.out.println("No file has been created yet. No Transactions have taken place.");
 			e.printStackTrace();
 		}
     }
