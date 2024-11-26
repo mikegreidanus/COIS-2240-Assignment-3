@@ -31,5 +31,37 @@ public class Testing {
 		 int known = 2;
 		 assertEquals(known, observed);
 	}
+	
+	@Test
+	public void testBookId() throws Exception{
+		
+		// First two cases will result in book creation, much sure correct values being passed
+		Book testbook1 = new Book(100, "Test100");
+		assertEquals(100, testbook1.getId());
+		
+		Book testbook2 = new Book(999, "Test999");
+		assertEquals(999, testbook2.getId());
+		
+		// Next cases will all throw an error, need to make sure its the correct error. 
+		Exception exception = assertThrows(Exception.class, () -> {
+			Book testcase3 = new Book (1000, "Test1000");
+        });
+		
+		assertEquals("Invalid Book Id", exception.getMessage());
+
+		Exception exception2 = assertThrows(Exception.class, () -> {
+			Book testcase4 = new Book (-54, "Test-54");
+        });
+		
+		assertEquals("Invalid Book Id", exception2.getMessage());
+		
+		Exception exception3 = assertThrows(Exception.class, () -> {
+			Book testcase5 = new Book (987654321, "Test987654321");
+        });
+		
+		assertEquals("Invalid Book Id", exception3.getMessage());
+		
+		
+	}
 
 }
