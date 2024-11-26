@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Constructor;
+
 import org.junit.Test;
 
 public class Testing {
@@ -20,8 +22,14 @@ public class Testing {
 			
 			//Test returning fails when its not borrowed 
 			assertFalse(Transaction.getTransaction().returnBook(testbook1, testmember1));
+	}
 
-		
+	@Test 
+	public void testSingletonTransaction() throws Exception{
+		 Constructor<Transaction>  constructor  =  Transaction.class.getDeclaredConstructor();
+		 int observed = constructor.getModifiers();
+		 int known = 2;
+		 assertEquals(known, observed);
 	}
 
 }
