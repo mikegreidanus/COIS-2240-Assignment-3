@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 
 import org.junit.Test;
 
-public class Testing {
+public class LibraryManagementTest {
 
 	@Test
 		public void testBorrowReturn() throws Exception{
